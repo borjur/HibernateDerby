@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping schema="DVDRENTAL">
+  
+  <class name="member.model.Member" table="MEMBER">
+
+    <id name="id" column="MEMBER_ID">
+      <generator class="identity"/>
+    </id>
+
+    <property name="username" column="USERNAME" unique="true"/>
+    <property name="email" column="EMAIL"/>
+    <property name="active" column="ACTIVE"/>
+    <property name="memberSinceDate" column="MEMBERSINCEDATE" type="date"/>
+
+    <join table="ADDRESS" >
+      <key column="MEMBER_ID"/>
+      <property name="street" column="STREET"/>
+      <property name="city" column="CITY"/>
+      <property name="state" column="STATE"/>
+      <property name="zipCode" column="ZIPCODE"/>
+      <property name="country" column="COUNTRY"/>
+    </join>
+
+
+  </class>
+
+
+</hibernate-mapping>
+

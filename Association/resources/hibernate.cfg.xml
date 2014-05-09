@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+    <!-- Database connection information-->
+    <property name="connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+    <property name="connection.url">jdbc:derby://localhost/DVDRental</property>
+    <property name="connection.username">sa</property>
+    <property name="connection.password">password</property>
+    <property name="connection.pool_size">2</property>
+
+     <!--other database related information-->
+    <property name="show_sql">true</property>
+  <property name="format_sql">true</property>
+    <property name="dialect">org.hibernate.dialect.DerbyDialect</property>
+
+    <!-- Session Context class    -->
+    <property name="current_session_context_class">org.hibernate.context.ThreadLocalSessionContext</property>
+
+    <!-- Mapping files -->
+    <mapping resource="Member.hbm.xml"/>
+    <mapping resource="DVD.hbm.xml"/>
+    <mapping resource="Loan.hbm.xml"/>
+
+
+
+  </session-factory>
+</hibernate-configuration>
+

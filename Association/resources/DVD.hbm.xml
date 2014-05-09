@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping schema="DVDRENTAL">
+
+  <class name="member.model.DVD" table="DVD">
+    <id name="id" column="DVD_CODE">
+      <generator class="identity"/>
+    </id>
+    <property name="title" column="TITLE" unique="true" />
+    <property name="price" column="PRICE" />
+    <one-to-one name="loan" 
+          class="member.model.Loan"
+          property-ref="dvd"/>
+  </class>
+
+</hibernate-mapping>
